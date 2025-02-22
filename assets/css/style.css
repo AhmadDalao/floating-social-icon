@@ -1,0 +1,117 @@
+*::after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --size: 2rem;
+    --radius: 5rem;
+    --padding: 1rem;
+    --bg-color: rgba(255, 255, 255, 0.9);
+    --fg-color: rgba(0, 0, 0, 0.7);
+    --hi-color: #c22eff;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.floating__social-button {
+    position: fixed;
+    bottom: var(--padding);
+    right: var(--padding);
+}
+
+.floating__social-button>* {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    background: var(--bg-color);
+    color: var(--fg-color);
+    text-decoration: none;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.6);
+}
+
+.floating__social-button>.floating__social-icon {
+    --factor: 0;
+    width: var(--size);
+    height: var(--size);
+    right: calc(0.35 * var(--size));
+    bottom: calc(0.35 * var(--size));
+    opacity: 0;
+    transform: rotate(calc(-1 * var(--angle))) translateY(calc(-1 * var(--radius) * var(--factor))) rotate(var(--angle));
+    transition: transform 250ms ease-in-out, opacity 250ms ease-in-out, box-shadow 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.floating__social-button>.floating__social-icon:hover, .floating__social-button>.trigger:hover {
+    color: #fcd12a;
+    box-shadow: 0px 0px 0px 0.35rem rgba(0, 0, 0, 0.2);
+}
+
+.floating__social-button.open>.floating__social-icon {
+    --factor: 1;
+    opacity: 1;
+}
+
+.floating__social-button>.floating__social-icon:nth-child(1) {
+    --angle: 0deg;
+    transition-delay: 0ms;
+}
+
+.floating__social-button>.floating__social-icon:nth-child(1):hover {
+    color: #25D366;
+}
+
+.floating__social-button>.floating__social-icon:nth-child(2) {
+    --angle: 30deg;
+    transition-delay: 50ms;
+}
+
+.floating__social-button>.floating__social-icon:nth-child(2):hover {
+    color: #EC0075;
+}
+
+.floating__social-button>.floating__social-icon:nth-child(3) {
+    --angle: 60deg;
+    transition-delay: 100ms;
+}
+
+.floating__social-button>.floating__social-icon:nth-child(3):hover {
+    color: #1DA1F2;
+}
+
+.floating__social-button>.floating__social-icon:nth-child(4) {
+    --angle: 90deg;
+    transition-delay: 150ms;
+}
+
+.floating__social-button>.floating__social-icon:nth-child(4):hover {
+    color: #1877F2;
+}
+
+.floating__social-button>.trigger {
+    width: calc(1.6 * var(--size));
+    height: calc(1.6 * var(--size));
+    bottom: 0;
+    right: 0;
+    font-size: 2rem;
+    transition: box-shadow 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.floating__social-button>.trigger>i {
+    transition: transform 250ms ease-in-out;
+}
+
+.floating__social-button.open>.trigger>i {
+    transform: rotate(-135deg);
+}
+
+.trigger.social__text {
+    font-size: 32px;
+    font-weight: 700;
+}
