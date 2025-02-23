@@ -11,6 +11,7 @@
     --size: 2rem;
     --radius: 5rem;
     --padding: 1rem;
+    --padding-whatsapp: 1rem;
     --bg-color: rgba(255, 255, 255, 0.9);
     --fg-color: rgba(0, 0, 0, 0.7);
     --hi-color: #c22eff;
@@ -22,8 +23,33 @@ body {
 
 .floating__social-button {
     position: fixed;
+
+    bottom: var(--radius);
+    right: var(--padding-whatsapp);
+}
+
+.floating-whatsapp-icon {
+    position: fixed;
+    bottom: var(--radius);
+    right: var(--padding-whatsapp);
+    font-size: 2rem;
     bottom: var(--padding);
     right: var(--padding);
+}
+
+.floating-whatsapp-icon>* {
+    position: absolute;
+    display: grid;
+    place-content: center;
+    border-radius: 50%;
+    background: var(--bg-color);
+    color: var(--fg-color);
+    text-decoration: none;
+    box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.6);
+    right: 0;
+    bottom: 0;
+    width: calc(1.6* var(--size));
+    height: calc(1.6* var(--size));
 }
 
 .floating__social-button>* {
@@ -53,6 +79,15 @@ body {
     box-shadow: 0px 0px 0px 0.35rem rgba(0, 0, 0, 0.2);
 }
 
+.floating-whatsapp-icon>.floating__social-icon {
+    transition: transform 250ms ease-in-out, opacity 250ms ease-in-out, box-shadow 250ms ease-in-out, color 250ms ease-in-out;
+}
+
+.floating-whatsapp-icon>.floating__social-icon:hover {
+    color: #25D366;
+    box-shadow: 0px 0px 0px 0.35rem rgba(0, 0, 0, 0.2);
+}
+
 .floating__social-button.open>.floating__social-icon {
     --factor: 1;
     opacity: 1;
@@ -64,7 +99,9 @@ body {
 }
 
 .floating__social-button>.floating__social-icon:nth-child(1):hover {
-    color: #25D366;
+    /* color: #25D366; */
+    color: #EC0075;
+
 }
 
 .floating__social-button>.floating__social-icon:nth-child(2) {
@@ -73,7 +110,9 @@ body {
 }
 
 .floating__social-button>.floating__social-icon:nth-child(2):hover {
-    color: #EC0075;
+    /* color: #EC0075; */
+    color: #1DA1F2;
+
 }
 
 .floating__social-button>.floating__social-icon:nth-child(3) {
@@ -82,9 +121,11 @@ body {
 }
 
 .floating__social-button>.floating__social-icon:nth-child(3):hover {
-    color: #1DA1F2;
+    /* color: #1DA1F2; */
+    color: #1877F2;
 }
 
+/* 
 .floating__social-button>.floating__social-icon:nth-child(4) {
     --angle: 90deg;
     transition-delay: 150ms;
@@ -92,7 +133,7 @@ body {
 
 .floating__social-button>.floating__social-icon:nth-child(4):hover {
     color: #1877F2;
-}
+} */
 
 .floating__social-button>.trigger {
     width: calc(1.6 * var(--size));
